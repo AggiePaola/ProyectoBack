@@ -38,10 +38,10 @@ export class DetailComponent implements OnInit {
 
 
   getImageUrl(): string {
-    if (!this.device || !this.device.imagen) return 'assets/imagenes/default.png';
+    if (!this.device || !this.device.imagen) return '/imagenes/default.png';
     return this.device.imagen.startsWith('http')
       ? this.device.imagen
-      : 'assets/imagenes/' + this.device.imagen;
+      : '/imagenes/' + this.device.imagen;
   }
 
   openModal() {
