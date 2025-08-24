@@ -10,14 +10,20 @@ import { DeviceService } from '../../services/device.service';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
-  device = { nombre: '', marca: '', descripcion: '', imagen: '' };
+  // Nota: no incluimos id porque JSON Server lo generará
+  device = { nombre: '', marca: '', descripcion: '', imagen: '', precio: 0 };
 
   constructor(private deviceService: DeviceService) { }
 
   addDevice() {
-    this.deviceService.addDevice(this.device).subscribe(() => {
-      alert('Dispositivo agregado!');
-      this.device = { nombre: '', marca: '', descripcion: '', imagen: '' };
+    this.deviceService.addDevice(this.device).subscribe({
+      next: () => {
+        alert('Dispositivo agregado!');
+        this.device = { nombre: '', marca: '', descripcion: '', imagen: '', precio: 0 };
+      },
+      error: err => {
+        console.error('Error al agregar dispositivo:', err);
+      }
     });
   }
 }

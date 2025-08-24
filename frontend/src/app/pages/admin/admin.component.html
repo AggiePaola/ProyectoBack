@@ -1,8 +1,32 @@
-<h2>Agregar dispositivo</h2>
-<form (ngSubmit)="addDevice()" #deviceForm="ngForm">
-    <input type="text" placeholder="Nombre" [(ngModel)]="device.nombre" name="nombre">
-    <input type="text" placeholder="Marca" [(ngModel)]="device.marca" name="marca">
-    <textarea placeholder="Descripción" [(ngModel)]="device.descripcion" name="descripcion"></textarea>
-    <input type="text" placeholder="Imagen URL" [(ngModel)]="device.imagen" name="imagen">
-    <button type="submit">Guardar</button>
-</form>
+<div class="container mt-4">
+    <h2>Agregar dispositivo</h2>
+
+    <form (ngSubmit)="addDevice()">
+        <div class="mb-3">
+            <label>Nombre</label>
+            <input type="text" [(ngModel)]="device.nombre" name="nombre" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Marca</label>
+            <input type="text" [(ngModel)]="device.marca" name="marca" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Descripción</label>
+            <textarea [(ngModel)]="device.descripcion" name="descripcion" class="form-control" required></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label>Imagen (URL o nombre de archivo en assets)</label>
+            <input type="text" [(ngModel)]="device.imagen" name="imagen" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Precio</label>
+            <input type="number" [(ngModel)]="device.precio" name="precio" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Agregar dispositivo</button>
+    </form>
+</div>
