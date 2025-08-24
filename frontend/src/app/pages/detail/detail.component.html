@@ -1,13 +1,11 @@
-<p>detail aaaa!</p>
+<p>aaa</p>
 <div *ngIf="device">
     <h2>{{ device.nombre }} - {{ device.marca }}</h2>
     <p>{{ device.descripcion }}</p>
-    <img [src]="device.imagen.startsWith('http') ? device.imagen : '/imagenes/' + device.imagen" [alt]="device.nombre"
-        width="100">
+    <img [src]="getImageUrl()" [alt]="device.nombre" width="200">
 
-    <!-- Botón que abre el modal -->
+    <!-- Botón amarillo -->
     <button class="open-modal-btn" (click)="openModal()">Dejar reseña</button>
-
 </div>
 
 <!-- Modal -->
@@ -20,10 +18,11 @@
                 <button type="button" class="btn-close" (click)="closeModal()"></button>
             </div>
             <div class="modal-body">
-                <p>Este es el contenido de la ventana flotante.</p>
+                <textarea [(ngModel)]="newReview" placeholder="Escribe tu review..." class="form-control"></textarea>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
+                <button class="btn btn-primary" (click)="closeModal()">Guardar</button>
             </div>
         </div>
     </div>

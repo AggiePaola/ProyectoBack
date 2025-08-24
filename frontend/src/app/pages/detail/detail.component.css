@@ -2,17 +2,13 @@
     background-color: #ffc107;
     border: none;
     color: #000;
-    /* texto negro */
     padding: 10px 20px;
     margin-top: 10px;
-    /* separa el botón de la imagen */
     cursor: pointer;
     border-radius: 5px;
     font-weight: bold;
-    transition: background-color 0.2s ease-in-out;
 }
 
 .open-modal-btn:hover {
     background-color: #e0a800;
-    /* un amarillo más oscuro al pasar el mouse */
 }
