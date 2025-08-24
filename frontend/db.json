@@ -15,6 +15,38 @@
             "descripcion": "Alta gama Samsung",
             "imagen": "https://via.placeholder.com/200",
             "precio": 1000
+        },
+        {
+            "id": 2,
+            "nombre": "Galaxy S23",
+            "marca": "Samsung",
+            "descripcion": "Alta gama Samsung",
+            "imagen": "https://via.placeholder.com/200",
+            "precio": 1000
+        },
+        {
+            "id": 2,
+            "nombre": "Galaxy S23",
+            "marca": "Samsung",
+            "descripcion": "Alta gama Samsung",
+            "imagen": "https://via.placeholder.com/200",
+            "precio": 1000
+        },
+        {
+            "id": 2,
+            "nombre": "Galaxy S23",
+            "marca": "Samsung",
+            "descripcion": "Alta gama Samsung",
+            "imagen": "https://via.placeholder.com/200",
+            "precio": 1000
+        },
+        {
+            "id": 2,
+            "nombre": "Galaxy S23",
+            "marca": "Samsung",
+            "descripcion": "Alta gama Samsung",
+            "imagen": "https://via.placeholder.com/200",
+            "precio": 1000
         }
     ]
 }
