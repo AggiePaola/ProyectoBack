@@ -1,0 +1,20 @@
+{
+    "devices": [
+        {
+            "id": 1,
+            "nombre": "iPhone 14",
+            "marca": "Apple",
+            "descripcion": "Último modelo de Apple",
+            "imagen": "assets/imagenes/iphone14.png",
+            "precio": 1200
+        },
+        {
+            "id": 2,
+            "nombre": "Galaxy S23",
+            "marca": "Samsung",
+            "descripcion": "Alta gama Samsung",
+            "imagen": "https://via.placeholder.com/200",
+            "precio": 1000
+        }
+    ]
+}
