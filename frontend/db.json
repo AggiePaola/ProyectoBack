@@ -1,8 +1,10 @@
+
+/*
 {
     "devices": [
         {
             "id": 1,
-            "nombre": "iPhone 14",
+            "nombre": "iPhone 17",
             "marca": "Apple",
             "descripcion": "Último modelo de Apple",
             "imagen": "iPhone_14.jpg",
