@@ -1,0 +1,13 @@
+footer a:hover {
+    color: #ffc107;
+    /* color amarillo elegante al pasar el mouse */
+}
+
+footer i {
+    font-size: 1.2rem;
+    transition: color 0.2s;
+}
+
+footer i:hover {
+    color: #ffc107;
+}
