@@ -6,7 +6,8 @@
             "marca": "Apple",
             "descripcion": "Último modelo de Apple",
             "imagen": "iPhone_14.jpg",
-            "precio": 1200
+            "precio": 1200,
+            "reviews": []
         },
         {
             "id": 2,
@@ -14,39 +15,8 @@
             "marca": "Samsung",
             "descripcion": "Alta gama Samsung",
             "imagen": "https://via.placeholder.com/200",
-            "precio": 1000
-        },
-        {
-            "id": 2,
-            "nombre": "Galaxy S23",
-            "marca": "Samsung",
-            "descripcion": "Alta gama Samsung",
-            "imagen": "https://via.placeholder.com/200",
-            "precio": 1000
-        },
-        {
-            "id": 2,
-            "nombre": "Galaxy S23",
-            "marca": "Samsung",
-            "descripcion": "Alta gama Samsung",
-            "imagen": "https://via.placeholder.com/200",
-            "precio": 1000
-        },
-        {
-            "id": 2,
-            "nombre": "Galaxy S23",
-            "marca": "Samsung",
-            "descripcion": "Alta gama Samsung",
-            "imagen": "https://via.placeholder.com/200",
-            "precio": 1000
-        },
-        {
-            "id": 2,
-            "nombre": "Galaxy S23",
-            "marca": "Samsung",
-            "descripcion": "Alta gama Samsung",
-            "imagen": "https://via.placeholder.com/200",
-            "precio": 1000
+            "precio": 1000,
+            "reviews": []
         }
     ]
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { Device, DeviceService } from '../../services/device.service';
+import { DeviceService } from '../../services/device.service';
 
 @Component({
   selector: 'app-detail',
@@ -11,14 +11,24 @@ import { Device, DeviceService } from '../../services/device.service';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit {
-  device: Device | undefined;
+  device: any;
+  ;
 
+  getImageUrl(device: any): string {
+    if (!device || !device.imagen) {
+      return '/imagenes/default.png'; // opcional: imagen por defecto
+    }
+    return device.imagen.startsWith('http')
+      ? device.imagen
+      : 'public/imagenes/' + device.imagen;
+  }
+  isModalOpen = false;
   constructor(
     private route: ActivatedRoute,
     private deviceService: DeviceService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     const idParam = this.route.snapshot.paramMap.get('id');
     if (idParam) {
       const id = Number(idParam);
@@ -29,12 +39,12 @@ export class DetailComponent implements OnInit {
     }
   }
 
-  getImageUrl(): string {
-    if (!this.device || !this.device.imagen) {
-      return 'assets/imagenes/default.png';
-    }
-    return this.device.imagen.startsWith('http')
-      ? this.device.imagen
-      : 'assets/imagenes/' + this.device.imagen;
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  // Cerrar modal
+  closeModal() {
+    this.isModalOpen = false;
   }
 }
