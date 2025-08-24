@@ -1,0 +1,8 @@
+<h2>Agregar dispositivo</h2>
+<form (ngSubmit)="addDevice()" #deviceForm="ngForm">
+    <input type="text" placeholder="Nombre" [(ngModel)]="device.nombre" name="nombre">
+    <input type="text" placeholder="Marca" [(ngModel)]="device.marca" name="marca">
+    <textarea placeholder="Descripción" [(ngModel)]="device.descripcion" name="descripcion"></textarea>
+    <input type="text" placeholder="Imagen URL" [(ngModel)]="device.imagen" name="imagen">
+    <button type="submit">Guardar</button>
+</form>

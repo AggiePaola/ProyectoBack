@@ -1,0 +1,13 @@
+<h1>Bienvenido a la tienda</h1>
+
+<div class="container">
+    <div class="card" *ngFor="let d of devices">
+        <img [src]="d.imagen.startsWith('http') ? d.imagen : '/imagenes/' + d.imagen" [alt]="d.nombre" width="150">
+
+        <h2>{{ d.nombre }}</h2>
+        <p>{{ d.descripcion }}</p>
+        <p><strong>Marca:</strong> {{ d.marca }}</p>
+        <p><strong>Precio:</strong> ${{ d.precio }}</p>
+        <button [routerLink]="['/detalle', d.id]">Ver detalle</button>
+    </div>
+</div>

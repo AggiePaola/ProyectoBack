@@ -1,0 +1,14 @@
+<p>detail works!</p>
+<div *ngIf="device">
+    <h2>{{ device.nombre }} - {{ device.marca }}</h2>
+    <p>{{ device.descripcion }}</p>
+    <img [src]="device.imagen.startsWith('http') ? device.imagen : '/imagenes/' + device.imagen" [alt]="device.nombre"
+        width="100">
+
+
+
+
+
+
+
+</div>
