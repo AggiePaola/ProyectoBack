@@ -20,11 +20,7 @@ export class DeviceService {
   updateDevice(device: Device): Observable<Device> {
     return this.http.put<Device>(`${this.apiUrl}/${device.id}`, device);
   }
-
-
-
   constructor(private http: HttpClient) { }
-
 
   getDevices(): Observable<Device[]> {
     return this.http.get<Device[]>(this.apiUrl);
