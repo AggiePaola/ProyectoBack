@@ -39,11 +39,12 @@ export class DetailComponent implements OnInit {
 
 
   getImageUrl(): string {
-    if (!this.device || !this.device.imagen) return '/imagenes/default.png';
+    if (!this.device || !this.device.imagen) return 'http://localhost:3000/imagenes/default.png';
     return this.device.imagen.startsWith('http')
       ? this.device.imagen
-      : '/imagenes/' + this.device.imagen;
+      : 'http://localhost:3000/imagenes/' + this.device.imagen;
   }
+
 
   openModal() {
     this.isModalOpen = true;

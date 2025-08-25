@@ -10,6 +10,9 @@ const port = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
+app.use('/imagenes', express.static('public/imagenes'));
+
+
 // Configuración de la conexión a MySQL
 const db = mysql.createPool({
     host: 'localhost',
