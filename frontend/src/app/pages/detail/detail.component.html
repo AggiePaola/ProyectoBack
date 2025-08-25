@@ -21,9 +21,15 @@
                 <textarea [(ngModel)]="newReview" placeholder="Escribe tu review..." class="form-control"></textarea>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
-                <button class="btn btn-primary" (click)="closeModal()">Guardar</button>
+
+                <button class="btn btn-primary" (click)="addReview()">Guardar</button>
             </div>
         </div>
     </div>
+</div>
+<div *ngIf="device?.reviews?.length">
+    <h5>Reviews:</h5>
+    <ul>
+        <li *ngFor="let review of device?.reviews">{{ review }}</li>
+    </ul>
 </div>

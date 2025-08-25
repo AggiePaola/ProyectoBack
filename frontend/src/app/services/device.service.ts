@@ -9,6 +9,7 @@ export interface Device {
   descripcion: string;
   imagen: string;
   precio: number;
+  reviews?: string[];
 }
 
 @Injectable({
@@ -16,6 +17,11 @@ export interface Device {
 })
 export class DeviceService {
   private apiUrl = 'http://localhost:3000/devices';
+  updateDevice(device: Device): Observable<Device> {
+    return this.http.put<Device>(`${this.apiUrl}/${device.id}`, device);
+  }
+
+
 
   constructor(private http: HttpClient) { }
 

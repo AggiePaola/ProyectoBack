@@ -52,5 +52,23 @@ export class DetailComponent implements OnInit {
     this.isModalOpen = false;
     this.newReview = '';
   }
-}
 
+  addReview() {
+    if (!this.device) return;
+
+    // Inicializa array de reviews si no existe
+    if (!this.device.reviews) this.device.reviews = [];
+
+    // Agrega la nueva review al array
+    this.device.reviews.push(this.newReview);
+
+    // Llama al servicio para actualizar el dispositivo en la DB
+    this.deviceService.updateDevice(this.device).subscribe({
+      next: () => {
+        alert('Review agregada!');
+        this.closeModal(); // cierra modal y limpia textarea
+      },
+      error: err => console.error('Error al agregar review:', err)
+    });
+  }
+}
