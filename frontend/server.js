@@ -31,9 +31,31 @@ app.get('/devices/:id', (req, res) => {
     const id = req.params.id;
     db.query('SELECT * FROM devices WHERE id = ?', [id], (err, results) => {
         if (err) return res.status(500).json(err);
+        if (results[0] && results[0].reviews) {
+            try {
+                results[0].reviews = JSON.parse(results[0].reviews);
+            } catch (e) {
+                results[0].reviews = [];
+            }
+        }
         res.json(results[0]);
     });
 });
+// Actualizar un dispositivo
+app.put('/devices/:id', (req, res) => {
+    const id = req.params.id;
+    const { nombre, marca, descripcion, imagen, precio, reviews } = req.body;
+
+    const sql = 'UPDATE devices SET nombre=?, marca=?, descripcion=?, imagen=?, precio=?, reviews=? WHERE id=?';
+    const values = [nombre, marca, descripcion, imagen, precio, JSON.stringify(reviews), id];
+
+    db.query(sql, values, (err, result) => {
+        if (err) return res.status(500).json(err);
+        res.json({ message: 'Dispositivo actualizado', device: req.body });
+    });
+});
+
+
 
 // Iniciar servidor
 app.listen(port, () => {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Device, DeviceService } from '../../services/device.service';
 
@@ -54,7 +55,7 @@ export class DetailComponent implements OnInit {
   }
 
   addReview() {
-    if (!this.device) return;
+    if (!this.device || !this.newReview.trim()) return; // evita agregar vacíos
 
     // Inicializa array de reviews si no existe
     if (!this.device.reviews) this.device.reviews = [];
@@ -66,9 +67,12 @@ export class DetailComponent implements OnInit {
     this.deviceService.updateDevice(this.device).subscribe({
       next: () => {
         alert('Review agregada!');
-        this.closeModal(); // cierra modal y limpia textarea
+        this.newReview = ''; // limpia textarea
+        this.closeModal();    // cierra modal
       },
       error: err => console.error('Error al agregar review:', err)
     });
   }
+
+
 }
