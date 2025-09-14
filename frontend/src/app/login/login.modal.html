@@ -17,8 +17,9 @@
 
                     <!-- Contraseña -->
                     <div class="mb-3">
-                        <label>Contraseña</label>
-                        <input type="password" formControlName="password" class="form-control" placeholder="********" />
+                        <label>Contrasena</label>
+                        <input type="password" formControlName="contrasena" class="form-control"
+                            placeholder="********" />
                     </div>
 
                     <!-- Botones -->
@@ -28,7 +29,7 @@
                         </button>
 
                         <button type="button" class="btn btn-success w-100" (click)="onRegister()"
-                            [disabled]="!loginForm.get('password')?.value">
+                            [disabled]="!loginForm.get('contrasena')?.value">
                             Registrar
                         </button>
                     </div>

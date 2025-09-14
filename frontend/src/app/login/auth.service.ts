@@ -1,23 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AuthResponse } from './/auth-response'; // ajusta la ruta según tu proyecto
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost/login'; // ⚡ ajusta a tu carpeta PHP
+  private apiUrl = 'http://localhost/login-api/login.php';
 
   constructor(private http: HttpClient) { }
 
-  // registrar usuario
-  register(email: string, password: string): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.apiUrl}/register.php`, { email, password });
+  login(datos: { usuario: string, contrasena: string }): Observable<any> {
+    return this.http.post<any>(this.apiUrl, datos);
   }
 
-  // login usuario
-  login(email: string, password: string): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.apiUrl}/login.php`, { email, password });
+
+  register(email: string, password: string): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/register.php`, {
+      Usuario: email,
+      Contrasena: password
+    });
   }
 }
+
+
