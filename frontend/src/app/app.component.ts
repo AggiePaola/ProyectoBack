@@ -17,8 +17,7 @@ export class AppComponent {
   title = 'frontend';
 
 
-  constructor(private router: Router) {
-    // 👇 cada vez que cambias de ruta, limpiamos backdrop y clases
+  constructor(private router: Router) {//forzar eliminacion grisaseo
     this.router.events.subscribe(() => {
       const backdrop = document.querySelector('.modal-backdrop');
       if (backdrop) {

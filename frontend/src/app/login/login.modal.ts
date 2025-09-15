@@ -61,15 +61,15 @@ export class LoginModalComponent {
       const modal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
       modal.hide();
 
-      // 🔹 Fuerza quitar backdrop manualmente
-      const backdrop = document.querySelector('.modal-backdrop');
-      if (backdrop) {
-        backdrop.remove();
-      }
-
-      // 🔹 Quita la clase que bloquea el scroll
-      document.body.classList.remove('modal-open');
-      document.body.style.removeProperty('padding-right');
+      setTimeout(() => {
+        const backdrop = document.querySelector('.modal-backdrop');
+        if (backdrop) {
+          backdrop.remove();
+        }
+        document.body.classList.remove('modal-open');
+        document.body.style.overflow = 'auto';
+        document.body.style.removeProperty('padding-right');
+      }, 300);
     }
   }
 
