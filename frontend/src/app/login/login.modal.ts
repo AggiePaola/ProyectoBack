@@ -28,11 +28,9 @@ export class LoginModalComponent {
     });
   }
 
-  // Login
-  onSubmit() {
+  onSubmit() { //login 
     if (this.loginForm.valid) {
       const { email, contrasena } = this.loginForm.value;
-
       this.authService.login({ usuario: email, contrasena }).subscribe({
         next: res => {
           if (res.success) {
@@ -40,19 +38,17 @@ export class LoginModalComponent {
             this.closeModal();
             this.router.navigate(['/home']);
           } else {
-            alert(res.error || 'Credenciales inválidas ❌');
+            alert(res.error || 'Credenciales inválidas');
           }
         },
-        error: () => alert('Error en el servidor ❌')
+        error: () => alert('Error en el servidor')
       });
     }
   }
 
-  // Registro
-  onRegister() {
+  onRegister() { //registro
     if (this.loginForm.valid) {
       const { email, contrasena } = this.loginForm.value;
-
       this.authService.register(email, contrasena).subscribe({
         next: res => alert(res.message || 'Usuario registrado ✅'),
         error: () => alert('Error al registrar ❌')

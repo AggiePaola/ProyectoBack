@@ -17,21 +17,17 @@
 
                     <!-- Contraseña -->
                     <div class="mb-3">
-                        <label>Contrasena</label>
+                        <label>Contraseña</label>
                         <input type="password" formControlName="contrasena" class="form-control"
                             placeholder="********" />
                     </div>
 
                     <!-- Botones -->
                     <div class="d-flex gap-2">
-                        <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid">
-                            Ingresar
-                        </button>
-
+                        <button type="submit" class="btn btn-primary w-100"
+                            [disabled]="loginForm.invalid">Ingresar</button>
                         <button type="button" class="btn btn-success w-100" (click)="onRegister()"
-                            [disabled]="!loginForm.get('contrasena')?.value">
-                            Registrar
-                        </button>
+                            [disabled]="!loginForm.get('contrasena')?.value">Registrar</button>
                     </div>
                 </form>
             </div>

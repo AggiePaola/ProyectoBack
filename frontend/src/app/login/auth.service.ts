@@ -6,8 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost/login-api/login.php';
-
+  //private apiUrl = 'http://localhost/login-api/login.php';
   constructor(private http: HttpClient) { }
   login(datos: { usuario: string, contrasena: string }): Observable<any> {
     return this.http.post<any>('http://localhost/login-api/login.php', datos);
