@@ -1,17 +1,22 @@
 0.Para acceso al api es necesario tener el login.php y el register.php en la carpeta disco local: C:\xampp\htdocs\login-api
-
-0. Tener XAMPP con XAMPP activado:
+	login.php y register.php estan en el repositorio git front
+1. Tener XAMPP con XAMPP activado:
 	Apache, MySQL
 	http://localhost/phpmyadmin/
-	exportar debice_db
-1. activar el note server:
+	exportar debice_db (esta en el mismo git) y exportarlo desde http://localhost/phpmyadmin/
+2. desde cdm o git bash ir a la carpeta frontend y activar el note server:
 	node server.js
-2. ng serve -o
-        
+3. desde cdm o git bash ir a la carpeta frontend y ejecutar: 
+	ng serve -o
         
 
-* ir al ultimo commit: git reset --hard HEAD
 
+
+
+
+
+        
+querys de ayuda para agregar:
 
 INSERT INTO login_db (Usuario, Contraseña)
 VALUES ('angie@gmail.com', '12345');
@@ -34,16 +39,11 @@ Servidor corriendo en http://localhost:3000
 
 INSERT INTO devices (nombre, marca, descripcion, imagen, precio, reviews)
 VALUES ('iPhone 16', 'Apple', 'Último modelo Apple', 'iPhone_16.jpg', 1300, '[]');
-
-ed
-
 usuarios: POST http://localhost/login-api/register.php
 {
   "usuario": "angie@gmail.com",
   "contrasena": "12345"
 }
 
-
-Galaxy_S24_ultra.jpg
 
 
