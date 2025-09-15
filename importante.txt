@@ -1,3 +1,5 @@
+0.Para acceso al api es necesario tener el login.php y el register.php en la carpeta disco local: C:\xampp\htdocs\login-api
+
 0. Tener XAMPP con XAMPP activado:
 	Apache, MySQL
 	http://localhost/phpmyadmin/
@@ -5,9 +7,19 @@
 1. activar el note server:
 	node server.js
 2. ng serve -o
+        
+        
 
 * ir al ultimo commit: git reset --hard HEAD
 
+
+INSERT INTO login_db (Usuario, Contraseña)
+VALUES ('angie@gmail.com', '12345');
+
+3.API REST C:\xampp\htdocs\login
+$sql = "SELECT * FROM users WHERE Usuarios='$usuario' AND Contraseña='$contraseña'";
+
+agregar componente, app module.ts
 
 levantar la api localhost3000: 
 	echo {} > db.json
@@ -22,6 +34,14 @@ Servidor corriendo en http://localhost:3000
 
 INSERT INTO devices (nombre, marca, descripcion, imagen, precio, reviews)
 VALUES ('iPhone 16', 'Apple', 'Último modelo Apple', 'iPhone_16.jpg', 1300, '[]');
+
+ed
+
+usuarios: POST http://localhost/login-api/register.php
+{
+  "usuario": "angie@gmail.com",
+  "contrasena": "12345"
+}
 
 
 Galaxy_S24_ultra.jpg
