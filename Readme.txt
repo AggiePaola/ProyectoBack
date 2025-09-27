@@ -1,14 +1,49 @@
-0.Para acceso al api es necesario tener el login.php y el register.php en la carpeta disco local: C:\xampp\htdocs\login-api
+0.Para acceso al api es necesario tener el login.php y el 
+register.php en la carpeta disco local: C:\xampp\htdocs\login-api
 	login.php y register.php estan en el repositorio git front
+
 1. Tener XAMPP con XAMPP activado:
 	Apache, MySQL
 	http://localhost/phpmyadmin/
 	exportar debice_db (esta en el mismo git) y exportarlo desde http://localhost/phpmyadmin/
+
 2. desde cdm o git bash ir a la carpeta frontend y activar el note server:
+	cd frontend
 	node server.js
 3. desde cdm o git bash ir a la carpeta frontend y ejecutar: 
-	ng serve -o
-        
+	cd frontend
+	ng serve -o  
+
+4. Ingresar diapositivo en sql:
+
+INSERT INTO devices (nombre, marca, descripcion, imagen, precio, reviews)
+VALUES ('iPhone 16', 'Apple', 'Último modelo Apple', 'iPhone_16.jpg', 1300, '[]');  
+
+5. borrar
+
+DELETE FROM devices
+WHERE id = 11;
+
+6. Modificar
+
+7. solo ver
+
+8. Consumo api propio: http://localhost:3000/devices
+	GET: Leer data
+	POST: Crear nuevo registro: localhost:3000/devices
+		{
+  "nombre": "Alcatel 67",
+  "marca": "Alcatel",
+  "descripcion": "Modelo 2023",
+  "imagen": "Alcatel_Pro_6.jpg",
+  "precio": "500.00",
+  "reviews": []
+}
+	Delete: desde el id.
+
+9. Consumo api de terceros: https://worldtimeapi.org/api/timezone/America/Bogota
+
+
 
 
 

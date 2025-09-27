@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
   cargarHora() {
     this.http.get<any>('https://worldtimeapi.org/api/timezone/America/Bogota')
       .subscribe(data => {
-        console.log('Respuesta API:', data); // 👀 Ver en consola
+        console.log('Respuesta API:', data);
         this.horaActual = new Date(data.datetime).toLocaleTimeString();
       });
   }
