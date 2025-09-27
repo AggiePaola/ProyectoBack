@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use('/imagenes', express.static('public/imagenes'));
 
 
-// Configuración de la conexión a MySQL
+//conexion a MySQL
 const db = mysql.createPool({
     host: 'localhost',
     user: 'root',
@@ -21,7 +21,7 @@ const db = mysql.createPool({
     database: 'devices_db'
 });
 
-// Obtener todos los dispositivos
+//obtener toda la data
 app.get('/devices', (req, res) => {
     db.query('SELECT * FROM devices', (err, results) => {
         if (err) return res.status(500).json(err);
@@ -29,7 +29,7 @@ app.get('/devices', (req, res) => {
     });
 });
 
-// Obtener un dispositivo por id
+// GET
 app.get('/devices/:id', (req, res) => {
     const id = req.params.id;
     db.query('SELECT * FROM devices WHERE id = ?', [id], (err, results) => {
@@ -44,6 +44,38 @@ app.get('/devices/:id', (req, res) => {
         res.json(results[0]);
     });
 });
+// POST 
+app.post('/devices', (req, res) => {
+    const { nombre, marca, descripcion, imagen, precio, reviews } = req.body;
+
+    const sql = 'INSERT INTO devices (nombre, marca, descripcion, imagen, precio, reviews) VALUES (?, ?, ?, ?, ?, ?)';
+    const values = [nombre, marca, descripcion, imagen, precio, JSON.stringify(reviews || [])];
+
+    db.query(sql, values, (err, result) => {
+        if (err) return res.status(500).json(err);
+        res.status(201).json({
+            message: 'Dispositivo creado',
+            device: { id: result.insertId, nombre, marca, descripcion, imagen, precio, reviews }
+        });
+    });
+});
+// Delete desde postman
+app.delete('/devices/:id', (req, res) => {
+    const id = req.params.id;
+
+    const sql = 'DELETE FROM devices WHERE id = ?';
+
+    db.query(sql, [id], (err, result) => {
+        if (err) return res.status(500).json(err);
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ message: 'Dispositivo no encontrado' });
+        }
+
+        res.json({ message: 'Dispositivo eliminado', id });
+    });
+});
+
 // Actualizar un dispositivo
 app.put('/devices/:id', (req, res) => {
     const id = req.params.id;
