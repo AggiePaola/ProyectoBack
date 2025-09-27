@@ -10,7 +10,7 @@ import { DeviceService } from '../../services/device.service';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
-  // Nota: no incluimos id porque JSON Server lo generará
+  // el id se genera automaticamente 
   device = { nombre: '', marca: '', descripcion: '', imagen: '', precio: 0 };
 
   constructor(private deviceService: DeviceService) { }

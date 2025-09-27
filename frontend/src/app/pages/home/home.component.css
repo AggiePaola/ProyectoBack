@@ -24,14 +24,10 @@ h1 {
 
 .card img {
     height: 200px;
-    /* el alto que quieras */
     width: auto;
-    /* se ajusta al alto sin deformarse */
     object-fit: contain;
-    /* muestra toda la imagen dentro del alto */
     border-radius: 8px;
     margin: 0 auto;
-    /* la centra horizontalmente */
 }
 
 .card button {
