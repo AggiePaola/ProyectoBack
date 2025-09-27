@@ -4,12 +4,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { LoginModalComponent } from "./login/login.modal";
-import { BorrarComponent } from './components/borrar/borrar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent, LoginModalComponent, BorrarComponent],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, LoginModalComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

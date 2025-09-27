@@ -1,33 +1,40 @@
-<div *ngIf="device">
-    <h2>{{ device.nombre }} - {{ device.marca }}</h2>
-    <p>{{ device.descripcion }}</p>
-    <img [src]="getImageUrl()" [alt]="device.nombre" width="200">
-
-    <!-- Botón amarillo -->
-    <button class="open-modal-btn" (click)="openModal()">Dejar reseña</button>
+<div *ngIf="device" class="card shadow p-4 mt-3">
+    <div class="text-center">
+        <img [src]="getImageUrl()" [alt]="device.nombre" class="img-fluid rounded shadow mb-3"
+            style="max-width: 250px;">
+        <h2 class="fw-bold">{{ device.nombre }} <span class="text-muted">- {{ device.marca }}</span></h2>
+        <p class="text-secondary">{{ device.descripcion }}</p>
+        <button class="btn btn-warning fw-bold px-4 mt-3" (click)="openModal()">⭐ Dejar reseña</button>
+    </div>
 </div>
 
 <!-- Modal -->
 <div class="modal fade" tabindex="-1" [ngClass]="{ 'show d-block': isModalOpen }"
     [style.background]="'rgba(0,0,0,0.5)'">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Ventana flotante</h5>
+        <div class="modal-content shadow-lg border-0 rounded-3">
+            <div class="modal-header border-0">
+                <h5 class="modal-title fw-bold w-100 text-center">✍️ Escribe tu reseña</h5>
                 <button type="button" class="btn-close" (click)="closeModal()"></button>
             </div>
             <div class="modal-body">
-                <textarea [(ngModel)]="newReview" placeholder="Escribe tu review..." class="form-control"></textarea>
+                <textarea [(ngModel)]="newReview" placeholder="Escribe tu review..."
+                    class="form-control rounded-3 shadow-sm" rows="4"></textarea>
             </div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" (click)="addReview()">Guardar</button>
+            <div class="modal-footer border-0">
+                <button class="btn btn-secondary" (click)="closeModal()">Cancelar</button>
+                <button class="btn btn-primary px-4" (click)="addReview()">Guardar</button>
             </div>
         </div>
     </div>
 </div>
-<div *ngIf="device?.reviews?.length">
-    <h5>Reviews:</h5>
-    <ul>
-        <li *ngFor="let review of device?.reviews">{{ review }}</li>
+
+<!-- Lista de reviews -->
+<div *ngIf="device?.reviews?.length" class="mt-4">
+    <h5 class="fw-bold mb-3">💬 Reseñas:</h5>
+    <ul class="list-group shadow-sm rounded">
+        <li *ngFor="let review of device?.reviews" class="list-group-item">
+            {{ review }}
+        </li>
     </ul>
 </div>
